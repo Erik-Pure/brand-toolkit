@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import BrandAuditPage from "./pages/BrandAudit";
+import AttributeSpectrumPage from "./pages/AttributeSpectrum";
+import HomePage from "./pages/Home";
+import CompetitorAuditPage from "./pages/CompetitorAudit";
+import BrandBriefPage from "./pages/BrandBrief";
+import BrandChecklistPage from "./pages/BrandChecklist";
+import ScrollToTop from "./helpers/ScrollToTop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="brandAudit">
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="brandaudit" element={<BrandAuditPage />} />
+          <Route path="competitoraudit" element={<CompetitorAuditPage />} />
+          <Route path="attributespectrum" element={<AttributeSpectrumPage />} />
+          <Route path="brandbrief" element={<BrandBriefPage />} />
+          <Route path="brandchecklist" element={<BrandChecklistPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

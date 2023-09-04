@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 export interface IAttributeSpectrumProps {}
 
+const print = () => window.print();
+
 const AttributeSpectrumPage: React.FunctionComponent<
   IAttributeSpectrumProps
 > = (props) => {
@@ -43,7 +45,7 @@ const AttributeSpectrumPage: React.FunctionComponent<
           </p>
         </div>
 
-        <div className="segment">
+        <div className="segment sliders">
           <div className="sliderWrap">
             <p className="blue">Exklusiv</p>
             <Slider />
@@ -131,9 +133,9 @@ const AttributeSpectrumPage: React.FunctionComponent<
         </div>
       </div>
       <footer>
-        <a href="#" className="btn red">
+      <button className="btn red" onClick={print}>
           Save as PDF
-        </a>
+        </button>
         <Link className="btn" to="/brandbrief">
           Uppdragsbeskrivning
         </Link>

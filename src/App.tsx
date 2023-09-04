@@ -11,7 +11,10 @@ import ScrollToTop from "./helpers/ScrollToTop";
 
 function App() {
   return (
-    <div className="brandAudit">
+    <div className="brandAudit">      
+    <header>
+        <a href="/"><img src="img/pure-design-logo.svg" alt="Pure Design" /></a>
+      </header>
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
@@ -22,7 +25,7 @@ function App() {
           <Route path="brandbrief" element={<BrandBriefPage />} />
           <Route path="brandchecklist" element={<BrandChecklistPage />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter>      
     </div>
   );
 }

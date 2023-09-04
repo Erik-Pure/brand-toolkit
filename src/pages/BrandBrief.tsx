@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export interface IBrandBriefProps {}
 
+const print = () => window.print();
+
 const BrandBriefPage: React.FunctionComponent<IBrandBriefProps> = (props) => {
   return (
     <div>
@@ -29,7 +31,7 @@ const BrandBriefPage: React.FunctionComponent<IBrandBriefProps> = (props) => {
           </label>
           <label>
             Projektöversikt
-            <textarea rows={3}></textarea>
+            <textarea rows={4}></textarea>
           </label>
 
           <label>
@@ -37,27 +39,27 @@ const BrandBriefPage: React.FunctionComponent<IBrandBriefProps> = (props) => {
             <span>
               Beskriv ditt syfte, din vision, ditt uppdrag och dina värderingar
             </span>
-            <textarea rows={4}></textarea>
+            <textarea rows={5}></textarea>
           </label>
 
           <label>
             Mätvärden för ett lyckat resultat
-            <textarea rows={4}></textarea>
+            <textarea rows={5}></textarea>
           </label>
 
           <label>
             Leverabler <span>Logotyp, färgpalett, typografi, m.m.</span>
-            <textarea rows={4}></textarea>
+            <textarea rows={5}></textarea>
           </label>
 
           <label>
             Huvudintressenter
-            <textarea rows={3}></textarea>
+            <textarea rows={4}></textarea>
           </label>
 
           <label>
             Målgrupp
-            <textarea rows={3}></textarea>
+            <textarea rows={4}></textarea>
           </label>
           <label>
             Nyckelattribut att förmedla i den nya identiteten
@@ -87,9 +89,9 @@ const BrandBriefPage: React.FunctionComponent<IBrandBriefProps> = (props) => {
         </div>
       </div>
       <footer>
-        <a href="#" className="btn red">
+      <button className="btn red" onClick={print}>
           Save as PDF
-        </a>
+        </button>
         <Link className="btn" to="/brandchecklist">
           Checklista Grafisk Profil
         </Link>

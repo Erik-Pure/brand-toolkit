@@ -18,7 +18,7 @@ label, input[type="text"], textarea {
 
 textarea, input[type="text"] {
   margin: 1vw 0;
-  padding: 10px;
+  padding: 5px;
   border: 4px solid #000;
   &:focus, &:hover {
       border-color: blue;
@@ -52,11 +52,9 @@ input[type="checkbox"] {
 
 .customCheckbox {
   display: inline-block;
-  width: 1.4vw;
-  padding-bottom: 1.4vw;
-  height: 0;  
-  border: 3px solid #000;
-  margin-top: 6px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #000;  
   margin-right: 24px;
   position: relative;
   &:after, &:before {
@@ -76,7 +74,7 @@ input[type="checkbox"] {
   }
   &:after {
     transform: rotate(-45deg);
-    bottom: 14%;
+    bottom: 12%;
     left: 30%;
     width: 0%;
     transition: all .1s ease-in-out;
@@ -86,6 +84,8 @@ input[type="checkbox"] {
 .cbLabel {
   color: #333;
   display: flex;
+  align-items: center;
+  margin-bottom: 4px;
   h4 {
     margin: 0;    
   }
@@ -93,13 +93,18 @@ input[type="checkbox"] {
 
 .cbContent {
   width: 100%;
+  margin-left: 54px;
+  p {
+    margin: 0;
+  }
   ul {
-    padding-left: 1em;
+    margin-top: 0;
+    padding-left: 1em;    
   }
 }
 
 input[type="checkbox"]:checked + .customCheckbox {
-  border-color: blue;
+  border-color: blue;  
   &:before {    
     width: 40%;
     transition-delay: 0s;
@@ -135,7 +140,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(22px, 3vw, 4vw);
+  font-size: clamp(22px, 3vw, 4vw);  
   &:before {
       content: "";        
       width: 10%;
@@ -193,7 +198,15 @@ hr {
   margin: 0 auto;
 }
 
-.btn {
+.btn, button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  font-size: clamp(14px, 1.1vw, 3vw);  
   display: inline-block;
   padding: 10px 20px;
   margin: 10px;
@@ -216,18 +229,19 @@ hr {
   img {
     margin: 0 auto;
     display: block;
-    width: 50%;
+    width: 100%;
+    max-width: 320px;
   }
 }
 .segment {
   padding-bottom: 10vh;
+  page-break-before: always;
 }
 
 table {
   width: 100%;    
   border-left: 1px solid #000;
-  border-top: 0.6vw solid blue;
-  margin-top: 100px;
+  border-top: 0.6vw solid blue;  
   td, th {
       width: 20%;        
       border-bottom: 2px dotted #000;
@@ -239,7 +253,7 @@ table {
   label {
       display: inline-block;
       margin: 0;
-      padding: 10px;      
+      padding: 4px 10px;      
   }
   input[type="text"] {
       border: none;
@@ -248,6 +262,22 @@ table {
   }
   textarea {
       border: none;
+      margin: 0;
+  }
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 14px;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,.2);
+  backdrop-filter: blur(10px);  
+  z-index: 3;
+  img {
+    height: 14px;
   }
 }
 
@@ -256,6 +286,18 @@ footer {
   background: #1a1a1a;  
   min-height: 20vh;
   text-align: center;
+}
+
+@media print
+{    
+    header, footer
+    {
+        display: none !important;
+    }
+}
+
+.sliders {
+  margin-top: 10vh;
 }
 
 .customSlider {  

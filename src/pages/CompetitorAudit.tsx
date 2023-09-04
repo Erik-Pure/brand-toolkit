@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export interface ICompetitorAuditProps {}
 
+const print = () => window.print();
+
 const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
   props
 ) => {
@@ -208,9 +210,9 @@ const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
       </div>
 
       <footer>
-        <a href="#" className="btn red">
+      <button className="btn red" onClick={print}>
           Save as PDF
-        </a>
+        </button>
         <Link className="btn" to="/attributespectrum">
           Utforska kärnvärden
         </Link>

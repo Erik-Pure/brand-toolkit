@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export interface IBrandAuditProps {}
 
+const print = () => window.print();
+
 const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
   return (
     <div>
@@ -33,7 +35,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
           <label>
             Vad gör du? <span>Besrkiv kortfattat din verksamhet</span>
-            <textarea rows={5}></textarea>
+            <textarea rows={6}></textarea>
           </label>
 
           <label>
@@ -41,12 +43,12 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span>
               Beskriv ditt syfte, din vision, ditt uppdrag och dina värderingar
             </span>
-            <textarea rows={6}></textarea>
+            <textarea rows={8}></textarea>
           </label>
 
           <label>
             Målgrupp <span>Vilka är dina målpersonas?</span>
-            <textarea rows={6}></textarea>
+            <textarea rows={8}></textarea>
           </label>
 
           <label>
@@ -57,13 +59,13 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           <label>
             Viktiga differentiatorer{" "}
             <span>Vad gör dig annorlunda/bättre än dina konkurrenter?</span>
-            <textarea rows={6}></textarea>
+            <textarea rows={8}></textarea>
           </label>
 
           <label>
             Varumärkets personlighet{" "}
             <span>Hur beskriver du ditt varumärke?</span>
-            <textarea rows={6}></textarea>
+            <textarea rows={8}></textarea>
           </label>
         </div>
 
@@ -72,7 +74,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           <p className="ingress">Så här talar du om ditt varumärke</p>
           <label>
             Tagline <span>Hur sammanfattar du det du gör i en enda mening</span>
-            <textarea rows={6}></textarea>
+            <textarea rows={2}></textarea>
           </label>
 
           <label>
@@ -80,7 +82,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span>
               Vilket unikt värde får kunderna av att köpa din produkt/tjänst?
             </span>
-            <textarea rows={6}></textarea>
+            <textarea rows={5}></textarea>
           </label>
 
           <label>
@@ -155,14 +157,14 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
               Identifiera de saker du vill att din nya visuella identitet ska
               kommunicera.
             </span>
-            <textarea rows={6}></textarea>
+            <textarea rows={8}></textarea>
           </label>
         </div>
       </div>
       <footer>
-        <a href="#" className="btn red">
+      <button className="btn red" onClick={print}>
           Save as PDF
-        </a>
+        </button>
         <Link className="btn" to="/competitoraudit">
           Konkurrensanalys
         </Link>

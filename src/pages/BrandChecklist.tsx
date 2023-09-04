@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export interface IBrandChecklistProps {}
 
+const print = () => window.print();
+
 const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
   props
 ) => {
@@ -13,7 +15,7 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
           <div>
             <h1>Checklista Grafisk Profil</h1>
             <hr />
-            <p className="ingress">
+            <p >
               Använd den här checklistan för att säkerställa att du har designat
               en komplett och sammanhållen identitet.
             </p>
@@ -27,9 +29,11 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
+          <h4>Logotyp</h4>          
+          </label>
           <div className="cbContent">
-            <h4>Logotyp</h4>{" "}
-            <p className="ingress">
+          
+            <p >
               - Designa en logotyp som återspeglar varumärkets personlighet.{" "}
             </p>
             <ul>
@@ -37,26 +41,26 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Testa att den syns bra i små storlekar.</p></li>
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Färgpalett</h4>{" "}
-            <p className="ingress">
+          <h4>Färgpalett</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Ta fram en enkel med flexibel färgpalett.{" "}
             </p>
             <ul>
               <li><p>Välj 1 huvudfärg, 2 primärfärger, 3-5 komplementfärger, och 2 accentfärger</p></li>              
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Typografi</h4>{" "}
-            <p className="ingress">
+          <h4>Typografi</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Välj ett typsnitt som fungerar som en förlängning av din logotyp.{" "}
             </p>
             <ul>
@@ -65,13 +69,13 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Testa läsbarheten i tryck och på skärm.</p></li>
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Fotografier</h4>{" "}
-            <p className="ingress">
+          <h4>Fotografier</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Använd en konsekvent och sammanhängande visuell stil.{" "}
             </p>
             <ul>
@@ -79,13 +83,13 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Var uppmärksam på en inkluderande representation.</p></li>
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Illustrationer</h4>{" "}
-            <p className="ingress">
+          <h4>Illustrationer</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Använd illustrationer för att visuellt förbättra, inte överväldiga.{" "}
             </p>
             <ul>
@@ -93,13 +97,13 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Håll det enkelt.</p></li>
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Ikoner</h4>{" "}
-            <p className="ingress">
+          <h4>Ikoner</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Fokuser på enkelhet och tydlighet.{" "}
             </p>
             <ul>
@@ -107,13 +111,13 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Se till att bilden är relevant för ändamålet.</p></li>
             </ul>            
           </div>
-          </label>
           <label className="cbLabel">
           <input type="checkbox" />
           <div className="customCheckbox"></div>
-          <div className="cbContent">
-            <h4>Datavisualisering</h4>{" "}
-            <p className="ingress">
+          <h4>Datavisualisering</h4>          
+          </label>
+          <div className="cbContent">            
+            <p >
               - Designa för enkel förståelse.{" "}
             </p>
             <ul>
@@ -122,13 +126,12 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Sortera/ordna data intuitivt (alfabetisk, stigande eller fallande).</p></li>
             </ul>            
           </div>
-          </label>
         </div>
       </div>
       <footer>
-        <a href="#" className="btn red">
+        <button className="btn red" onClick={print}>
           Save as PDF
-        </a>
+        </button>
       </footer>
     </div>
   );

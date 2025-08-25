@@ -5,7 +5,7 @@ import { useForm } from "../context/FormContext";
 interface IHomeProps {}
 
 const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
-  const { formData, exportData, resetAll } = useForm();
+  const { resetAll } = useForm();
 
   return (
     <div className="home">
@@ -32,6 +32,18 @@ const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
             <Link className="btn" to="/brandchecklist">
               Checklista Grafisk Profil
             </Link>
+            
+            <button 
+              className="btn red" 
+              onClick={() => {
+                if (window.confirm('Är du säker på att du vill radera all data? Detta går inte att ångra.')) {
+                  resetAll();
+                }
+              }}
+            >
+              Rensa all data
+            </button>
+            
             <div className="rebrand-time">
               Är det verkligen dags
               <br /> för en rebrand?

@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../context/FormContext";
 
-export interface IBrandAuditProps {}
+interface IBrandAuditProps {}
 
 const print = () => window.print();
 
 const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
+  const { formData, updateBrandAudit } = useForm();
+
   return (
     <div>
       <div className="wrap">
@@ -20,7 +23,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             </p>
           </div>
           <div>
-            <img src="/img/audit.png" alt="image" />
+            <img src="/img/audit.png" alt="Brand audit illustration" />
           </div>
         </div>
 
@@ -31,11 +34,19 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </p>
           <label>
             Företagsnamn
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.brandAudit.companyName}
+              onChange={(e) => updateBrandAudit('companyName', e.target.value)}
+            />
           </label>
           <label>
-            Vad gör du? <span>Besrkiv kortfattat din verksamhet</span>
-            <textarea rows={6}></textarea>
+            Vad gör du? <span>Beskriv kortfattat din verksamhet</span>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.whatYouDo}
+              onChange={(e) => updateBrandAudit('whatYouDo', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
@@ -43,29 +54,49 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span>
               Beskriv ditt syfte, din vision, ditt uppdrag och dina värderingar
             </span>
-            <textarea rows={8}></textarea>
+            <textarea 
+              rows={8}
+              value={formData.brandAudit.brandHeart}
+              onChange={(e) => updateBrandAudit('brandHeart', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Målgrupp <span>Vilka är dina målpersonas?</span>
-            <textarea rows={8}></textarea>
+            <textarea 
+              rows={8}
+              value={formData.brandAudit.targetAudience}
+              onChange={(e) => updateBrandAudit('targetAudience', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Konkurrens <span>Vilka är dina topp 3-5 konkurrenter</span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.competition}
+              onChange={(e) => updateBrandAudit('competition', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Viktiga differentiatorer{" "}
             <span>Vad gör dig annorlunda/bättre än dina konkurrenter?</span>
-            <textarea rows={8}></textarea>
+            <textarea 
+              rows={8}
+              value={formData.brandAudit.differentiators}
+              onChange={(e) => updateBrandAudit('differentiators', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Varumärkets personlighet{" "}
             <span>Hur beskriver du ditt varumärke?</span>
-            <textarea rows={8}></textarea>
+            <textarea 
+              rows={8}
+              value={formData.brandAudit.brandPersonality}
+              onChange={(e) => updateBrandAudit('brandPersonality', e.target.value)}
+            ></textarea>
           </label>
         </div>
 
@@ -74,7 +105,11 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           <p className="ingress">Så här talar du om ditt varumärke</p>
           <label>
             Tagline <span>Hur sammanfattar du det du gör i en enda mening</span>
-            <textarea rows={2}></textarea>
+            <textarea 
+              rows={2}
+              value={formData.brandAudit.tagline}
+              onChange={(e) => updateBrandAudit('tagline', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
@@ -82,7 +117,11 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span>
               Vilket unikt värde får kunderna av att köpa din produkt/tjänst?
             </span>
-            <textarea rows={5}></textarea>
+            <textarea 
+              rows={5}
+              value={formData.brandAudit.valueProposition}
+              onChange={(e) => updateBrandAudit('valueProposition', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
@@ -90,17 +129,29 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span>
               Vilka är dina främsta försäljningsargument eller budskap?
             </span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.keyMessages}
+              onChange={(e) => updateBrandAudit('keyMessages', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Röst <span>Hur talar du i ditt innehåll?</span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.voice}
+              onChange={(e) => updateBrandAudit('voice', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Varumärkespersonlighet <span>Hur beskriver du ditt varumärke?</span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.brandPersonality2}
+              onChange={(e) => updateBrandAudit('brandPersonality2', e.target.value)}
+            ></textarea>
           </label>
         </div>
 
@@ -115,22 +166,38 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </p>
           <label>
             Logotyp <span></span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.logo}
+              onChange={(e) => updateBrandAudit('logo', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Färgpalett <span></span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.colorPalette}
+              onChange={(e) => updateBrandAudit('colorPalette', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Typografi <span></span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.typography}
+              onChange={(e) => updateBrandAudit('typography', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Annat <span>Foton, illustrationer, video, etc.</span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.other}
+              onChange={(e) => updateBrandAudit('other', e.target.value)}
+            ></textarea>
           </label>
         </div>
 
@@ -138,17 +205,29 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           <h4>Kan den nuvarande identiteten...</h4>
           <label>
             Återspegla din personlighet? <span></span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.reflectPersonality}
+              onChange={(e) => updateBrandAudit('reflectPersonality', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Förhålla sig till/kommunicera dina värderingar?{" "}
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.communicateValues}
+              onChange={(e) => updateBrandAudit('communicateValues', e.target.value)}
+            ></textarea>
           </label>
 
           <label>
             Få ditt varumärke att sticka ut/särskilja sig? <span></span>
-            <textarea rows={6}></textarea>
+            <textarea 
+              rows={6}
+              value={formData.brandAudit.standOut}
+              onChange={(e) => updateBrandAudit('standOut', e.target.value)}
+            ></textarea>
           </label>
 
           <label className="vertical-align">
@@ -157,12 +236,16 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
               Identifiera de saker du vill att din nya visuella identitet ska
               kommunicera.
             </span>
-            <textarea rows={8}></textarea>
+            <textarea 
+              rows={8}
+              value={formData.brandAudit.improvementOpportunities}
+              onChange={(e) => updateBrandAudit('improvementOpportunities', e.target.value)}
+            ></textarea>
           </label>
         </div>
       </div>
       <footer>
-      <button className="btn red" onClick={print}>
+        <button className="btn red" onClick={print}>
           Save as PDF
         </button>
         <Link className="btn" to="/competitoraudit">

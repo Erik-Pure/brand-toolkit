@@ -1,54 +1,62 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../context/FormContext";
 
-export interface ICompetitorAuditProps {}
-
-const print = () => window.print();
+interface ICompetitorAuditProps {}
 
 const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
   props
 ) => {
+  const { formData, updateCompetitorAudit } = useForm();
+
   return (
     <div>
       <div className="wrap">
         <div className="segment-header">
           <div>
-            <h1>Analys av Konkurrenter</h1>
+            <h1>Konkurrensanalys</h1>
             <hr />
             <p className="ingress">
-              Använd den här mallen för att granska dina konkurrenters
-              varumärkesidentiteter och identifiera möjligheter att särskilja
-              din egen identitet.
+              För att slutföra den här övningen granskar du
+              varumärkesidentiteterna för dina topp 3 konkurrenter. Granska en
+              konkurrent i taget och dokumentera dina resultat allt eftersom. För
+              att få en känsla av varje varumärkes identitet, ta en titt på deras
+              webbplats, sociala medieprofiler, etc.
             </p>
           </div>
           <div>
-            <img src="/img/comp.png" alt="image" />
+            <img src="/img/comp.png" alt="Competitor analysis illustration" />
           </div>
         </div>
 
         <div className="segment">
-          <p className="ingress">
-            För att slutföra den här övningen granskar du
-            varumärkesidentiteterna för dina topp 3 konkurrenter. Granska en
-            konkurrent i taget och dokumentera dina resultat allt eftersom. För
-            att få en känsla av varje varumärkes identitet, ta en titt på deras
-            webbplats, sociala medieprofiler, etc.
-          </p>
           <table cellSpacing="0">
             <thead>
               <tr>
                 <th></th>
                 <th>
                   Konkurrent 1
-                  <input type="text" />
+                  <input 
+                    type="text" 
+                    value={formData.competitorAudit.competitor1}
+                    onChange={(e) => updateCompetitorAudit('competitor1', e.target.value)}
+                  />
                 </th>
                 <th>
                   Konkurrent 2
-                  <input type="text" />
+                  <input 
+                    type="text" 
+                    value={formData.competitorAudit.competitor2}
+                    onChange={(e) => updateCompetitorAudit('competitor2', e.target.value)}
+                  />
                 </th>
                 <th>
                   Konkurrent 3
-                  <input type="text" />
+                  <input 
+                    type="text" 
+                    value={formData.competitorAudit.competitor3}
+                    onChange={(e) => updateCompetitorAudit('competitor3', e.target.value)}
+                  />
                 </th>
               </tr>
             </thead>
@@ -64,13 +72,25 @@ const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
                   </label>
                 </td>
                 <td>
-                  <textarea rows={4}></textarea>
+                  <textarea 
+                    rows={4}
+                    value={formData.competitorAudit.competitor1Logo}
+                    onChange={(e) => updateCompetitorAudit('competitor1Logo', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={4}></textarea>
+                  <textarea 
+                    rows={4}
+                    value={formData.competitorAudit.competitor2Logo}
+                    onChange={(e) => updateCompetitorAudit('competitor2Logo', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={4}></textarea>
+                  <textarea 
+                    rows={4}
+                    value={formData.competitorAudit.competitor3Logo}
+                    onChange={(e) => updateCompetitorAudit('competitor3Logo', e.target.value)}
+                  ></textarea>
                 </td>
               </tr>
               <tr>
@@ -84,13 +104,25 @@ const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
                   </label>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor1Typography}
+                    onChange={(e) => updateCompetitorAudit('competitor1Typography', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor2Typography}
+                    onChange={(e) => updateCompetitorAudit('competitor2Typography', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor3Typography}
+                    onChange={(e) => updateCompetitorAudit('competitor3Typography', e.target.value)}
+                  ></textarea>
                 </td>
               </tr>
               <tr>
@@ -98,123 +130,71 @@ const CompetitorAuditPage: React.FunctionComponent<ICompetitorAuditProps> = (
                   <label>
                     Färgpalett:{" "}
                     <span>
-                      Vilka dominerande färger använder de? Är de lika andra
-                      konkurrenter?
+                      Vilka färger använder de? Är de varma eller kalla? Mörka
+                      eller ljusa?
                     </span>
                   </label>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor1ColorPalette}
+                    onChange={(e) => updateCompetitorAudit('competitor1ColorPalette', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor2ColorPalette}
+                    onChange={(e) => updateCompetitorAudit('competitor2ColorPalette', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>
-                    Foton:{" "}
-                    <span>Använder de stock- eller egna- fotografier? </span>
-                  </label>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor3ColorPalette}
+                    onChange={(e) => updateCompetitorAudit('competitor3ColorPalette', e.target.value)}
+                  ></textarea>
                 </td>
               </tr>
               <tr>
                 <td>
                   <label>
-                    Illustrationer:{" "}
+                    Annat:{" "}
                     <span>
-                      Vilken stil använder de? Är människor avbildade i deras
-                      illustration stil?
+                      Foton, illustrationer, video, etc. Vad mer märker du?
                     </span>
                   </label>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor1Other}
+                    onChange={(e) => updateCompetitorAudit('competitor1Other', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor2Other}
+                    onChange={(e) => updateCompetitorAudit('competitor2Other', e.target.value)}
+                  ></textarea>
                 </td>
                 <td>
-                  <textarea rows={3}></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>
-                    Brand story:{" "}
-                    <span>
-                      Förstår du deras personlighet, positionering etc genom
-                      deras visuella presentation?
-                    </span>
-                  </label>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label>
-                    Texter:{" "}
-                    <span>
-                      Vad är tonen (humoristisk, knasig, allvarlig, lättsam)?
-                    </span>
-                  </label>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
-                </td>
-                <td>
-                  <textarea rows={3}></textarea>
+                  <textarea 
+                    rows={3}
+                    value={formData.competitorAudit.competitor3Other}
+                    onChange={(e) => updateCompetitorAudit('competitor3Other', e.target.value)}
+                  ></textarea>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="segment">
-          <h3>Viktiga lärdomar</h3>
-          <p className="ingress">
-            Baserat på din utvärdering, dokumentera de insikter som kan hjälpa
-            dig att designa en bra och unik grafisk identitet.
-          </p>
-          <label>
-            Vilka gemensamma visuella teman observerade du hos konkurrenterna?
-            <textarea rows={10} id="logo"></textarea>
-          </label>
-          <label>
-            Vart ser du störst möjligheter till att särskilja dig?{" "}
-            <textarea rows={10} id="logo"></textarea>
-          </label>
-        </div>
       </div>
-
       <footer>
-      <button className="btn red" onClick={print}>
-          Save as PDF
-        </button>
         <Link className="btn" to="/attributespectrum">
-          Utforska kärnvärden
+          Attributspektrum
         </Link>
       </footer>
     </div>

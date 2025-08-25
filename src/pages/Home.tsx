@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../context/FormContext";
 
-export interface IHomePageProps {}
+interface IHomeProps {}
 
-const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
+const HomePage: React.FunctionComponent<IHomeProps> = (props) => {
+  const { formData, exportData, resetAll } = useForm();
+
   return (
     <div className="home">
       <div className="wrap">
@@ -32,7 +35,7 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props) => {
             <div className="rebrand-time">
               Är det verkligen dags
               <br /> för en rebrand?
-              <img src="/img/arrow.svg" alt="image" />
+              <img src="/img/arrow.svg" alt="arrow" />
             </div>
           </div>
           <div>

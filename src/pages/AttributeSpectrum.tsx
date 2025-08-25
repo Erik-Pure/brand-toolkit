@@ -1,99 +1,112 @@
 import React from "react";
-import Slider from "../components/Slider";
 import { Link } from "react-router-dom";
+import Slider from "../components/Slider";
+import { useForm } from "../context/FormContext";
 
-export interface IAttributeSpectrumProps {}
-
-const print = () => window.print();
+interface IAttributeSpectrumProps {}
 
 const AttributeSpectrumPage: React.FunctionComponent<
   IAttributeSpectrumProps
 > = (props) => {
+  const { formData, updateAttributeSpectrum } = useForm();
+
   return (
     <div>
       <div className="wrap">
         <div className="segment-header">
           <div>
-            <h1>Utforska kärnvärden</h1>
+            <h1>Attributspektrum</h1>
             <hr />
             <p className="ingress">
-              Använd den här övningen för att identifiera de kärnvärden du vill
-              att din varumärkesidentitet ska kommunicera.
+              Använd dessa spektrum för att identifiera varumärkets personlighet
+              och positionering. Flytta reglaget för varje spektrum för att
+              indikera var ditt varumärke faller på skalan.
             </p>
           </div>
           <div>
-            <img src="/img/spectrum.png" alt="image" />
+            <img src="/img/spectrum.png" alt="Attribute spectrum illustration" />
           </div>
-        </div>
-
-        <div className="segment">
-          <h5>Steg 1</h5>
-          <h4>Samla ditt varumärkesteam / stakeholders.</h4>
-          <p className="ingress">
-            Det är bäst att göra detta med alla i samma rum (virtuellt eller
-            fysiskt).
-          </p>
-
-          <h5>Step 2</h5>
-          <h4>
-            Använd mallen nedanför eller kopiera diagrammet till en whiteboard
-            eller ett delat dokument (t.ex miro eller figjam).
-          </h4>
-          <p className="ingress">
-            Låt varje deltagare lägga till ett X där de tror att ditt varumärke
-            faller på varje spektrum nedan.
-          </p>
         </div>
 
         <div className="segment sliders">
           <div className="sliderWrap">
             <p className="blue">Exklusiv</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.exclusiveAccessible}
+              onChange={(value) => updateAttributeSpectrum('exclusiveAccessible', value)}
+            />
             <p className="red">Tillgänglig</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Traditionell</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.traditionalProgressive}
+              onChange={(value) => updateAttributeSpectrum('traditionalProgressive', value)}
+            />
             <p className="red">Progressiv</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Korporativ</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.corporateFriendly}
+              onChange={(value) => updateAttributeSpectrum('corporateFriendly', value)}
+            />
             <p className="red">Vänlig</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Seriös</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.seriousFun}
+              onChange={(value) => updateAttributeSpectrum('seriousFun', value)}
+            />
             <p className="red">Kul, Lekfull</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Försiktig, varsam</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.cautiousBold}
+              onChange={(value) => updateAttributeSpectrum('cautiousBold', value)}
+            />
             <p className="red">Framåt, modig</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Enkel</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.simpleComplex}
+              onChange={(value) => updateAttributeSpectrum('simpleComplex', value)}
+            />
             <p className="red">Komplex</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Stad, Urban</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.urbanNatural}
+              onChange={(value) => updateAttributeSpectrum('urbanNatural', value)}
+            />
             <p className="red">Naturlig</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Familjär</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.familiarDisruptive}
+              onChange={(value) => updateAttributeSpectrum('familiarDisruptive', value)}
+            />
             <p className="red">Disruptiv</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Stadig, Stabil</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.stableDynamic}
+              onChange={(value) => updateAttributeSpectrum('stableDynamic', value)}
+            />
             <p className="red">Dynamisk</p>
           </div>
           <div className="sliderWrap">
             <p className="blue">Realistisk</p>
-            <Slider />
+            <Slider 
+              value={formData.attributeSpectrum.realisticIdealistic}
+              onChange={(value) => updateAttributeSpectrum('realisticIdealistic', value)}
+            />
             <p className="red">Idealistisk</p>
           </div>
         </div>
@@ -112,28 +125,48 @@ const AttributeSpectrumPage: React.FunctionComponent<
           </p>
           <label>
             Attribut 1
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.attributeSpectrum.attribute1}
+              onChange={(e) => updateAttributeSpectrum('attribute1', e.target.value)}
+            />
           </label>
           <label>
             Attribut 2
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.attributeSpectrum.attribute2}
+              onChange={(e) => updateAttributeSpectrum('attribute2', e.target.value)}
+            />
           </label>
           <label>
             Attribut 3
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.attributeSpectrum.attribute3}
+              onChange={(e) => updateAttributeSpectrum('attribute3', e.target.value)}
+            />
           </label>
           <label>
             Attribut 4
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.attributeSpectrum.attribute4}
+              onChange={(e) => updateAttributeSpectrum('attribute4', e.target.value)}
+            />
           </label>
           <label>
             Attribut 5
-            <input type="text" />
+            <input 
+              type="text" 
+              value={formData.attributeSpectrum.attribute5}
+              onChange={(e) => updateAttributeSpectrum('attribute5', e.target.value)}
+            />
           </label>
         </div>
       </div>
       <footer>
-      <button className="btn red" onClick={print}>
+        <button className="btn red" onClick={() => window.print()}>
           Save as PDF
         </button>
         <Link className="btn" to="/brandbrief">

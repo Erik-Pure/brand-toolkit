@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "../context/FormContext";
 
-export interface IBrandChecklistProps {}
-
-const print = () => window.print();
+interface IBrandChecklistProps {}
 
 const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
   props
 ) => {
+  const { formData, updateBrandChecklist } = useForm();
+
   return (
     <div>
       <div className="wrap">
@@ -15,25 +16,28 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
           <div>
             <h1>Checklista Grafisk Profil</h1>
             <hr />
-            <p >
+            <p>
               Använd den här checklistan för att säkerställa att du har designat
               en komplett och sammanhållen identitet.
             </p>
           </div>
           <div>
-            <img src="/img/checklist.png" alt="image" />
+            <img src="/img/checklist.png" alt="Brand checklist illustration" />
           </div>
         </div>
 
         <div className="segment">
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Logotyp</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.logo}
+              onChange={(e) => updateBrandChecklist('logo', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Logotyp</h4>          
           </label>
           <div className="cbContent">
-          
-            <p >
+            <p>
               - Designa en logotyp som återspeglar varumärkets personlighet.{" "}
             </p>
             <ul>
@@ -41,97 +45,128 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
               <li><p>Testa att den syns bra i små storlekar.</p></li>
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Färgpalett</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.colorPalette}
+              onChange={(e) => updateBrandChecklist('colorPalette', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Färgpalett</h4>          
           </label>
           <div className="cbContent">            
-            <p >
+            <p>
               - Ta fram en enkel med flexibel färgpalett.{" "}
             </p>
             <ul>
               <li><p>Välj 1 huvudfärg, 2 primärfärger, 3-5 komplementfärger, och 2 accentfärger</p></li>              
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Typografi</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.typography}
+              onChange={(e) => updateBrandChecklist('typography', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Typografi</h4>          
           </label>
-          <div className="cbContent">            
-            <p >
-              - Välj ett typsnitt som fungerar som en förlängning av din logotyp.{" "}
+          <div className="cbContent">
+            <p>
+              - Välj typsnitt som stödjer varumärkets personlighet.{" "}
             </p>
             <ul>
-              <li><p>Ta fram ett primärt, sekundärt och ett alternativt typsnitt.</p></li>
-              <li><p>Prova blanda serif och sans serif.</p></li>
-              <li><p>Testa läsbarheten i tryck och på skärm.</p></li>
+              <li><p>Välj 1-2 huvudtypsnitt för rubriker och 1-2 för brödtext</p></li>
+              <li><p>Se till att typsnitten är läsbara i olika storlekar</p></li>
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Fotografier</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.imagery}
+              onChange={(e) => updateBrandChecklist('imagery', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Bildmaterial</h4>          
           </label>
-          <div className="cbContent">            
-            <p >
-              - Använd en konsekvent och sammanhängande visuell stil.{" "}
+          <div className="cbContent">
+            <p>
+              - Skapa riktlinjer för fotografi och illustrationer.{" "}
             </p>
             <ul>
-              <li><p>Se till att bilderna är av hög kvalitet och hög upplösning.</p></li>
-              <li><p>Var uppmärksam på en inkluderande representation.</p></li>
+              <li><p>Definiera stil, färger, komposition och ton</p></li>
+              <li><p>Skapa en samling med referensbilder</p></li>
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Illustrationer</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.applications}
+              onChange={(e) => updateBrandChecklist('applications', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Tillämpningar</h4>          
           </label>
-          <div className="cbContent">            
-            <p >
-              - Använd illustrationer för att visuellt förbättra, inte överväldiga.{" "}
+          <div className="cbContent">
+            <p>
+              - Testa identiteten på olika medier.{" "}
             </p>
             <ul>
-              <li><p>Välj en stil.</p></li>
-              <li><p>Håll det enkelt.</p></li>
+              <li><p>Webb, sociala medier, tryck, kläder, etc.</p></li>
+              <li><p>Se till att den fungerar i både färg och svartvitt</p></li>
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Ikoner</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.guidelines}
+              onChange={(e) => updateBrandChecklist('guidelines', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Riktlinjer</h4>          
           </label>
-          <div className="cbContent">            
-            <p >
-              - Fokuser på enkelhet och tydlighet.{" "}
+          <div className="cbContent">
+            <p>
+              - Dokumentera alla riktlinjer.{" "}
             </p>
             <ul>
-              <li><p>Dubbelkolla att ikoner återges tydligt i små storlekar.</p></li>
-              <li><p>Se till att bilden är relevant för ändamålet.</p></li>
+              <li><p>Skapa en varumärkesmanual med alla regler</p></li>
+              <li><p>Inkludera exempel på rätt och fel användning</p></li>
             </ul>            
           </div>
+          
           <label className="cbLabel">
-          <input type="checkbox" />
-          <div className="customCheckbox"></div>
-          <h4>Datavisualisering</h4>          
+            <input 
+              type="checkbox" 
+              checked={formData.brandChecklist.testing}
+              onChange={(e) => updateBrandChecklist('testing', e.target.checked)}
+            />
+            <div className="customCheckbox"></div>
+            <h4>Testning</h4>          
           </label>
-          <div className="cbContent">            
-            <p >
-              - Designa för enkel förståelse.{" "}
+          <div className="cbContent">
+            <p>
+              - Testa identiteten med målgruppen.{" "}
             </p>
             <ul>
-              <li><p>Undvik mönster som krockar (använd färg istället).</p></li>
-              <li><p>Överillustrera eller använd inte 3D-diagram.</p></li>
-              <li><p>Sortera/ordna data intuitivt (alfabetisk, stigande eller fallande).</p></li>
+              <li><p>Samla feedback från potentiella kunder</p></li>
+              <li><p>Se till att identiteten kommunicerar rätt budskap</p></li>
             </ul>            
           </div>
         </div>
       </div>
       <footer>
-        <button className="btn red" onClick={print}>
+        <button className="btn red" onClick={() => window.print()}>
           Save as PDF
         </button>
+        <Link className="btn" to="/">
+          Tillbaka till start
+        </Link>
       </footer>
     </div>
   );

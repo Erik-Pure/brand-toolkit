@@ -143,7 +143,7 @@ const BrandBriefPage: React.FunctionComponent<IBrandBriefProps> = (props) => {
       </div>
       <footer>
         <button className="btn red" onClick={() => window.print()}>
-          Save as PDF
+          Spara som PDF
         </button>
         <Link className="btn" to="/brandchecklist">
           Checklista Grafisk Profil

@@ -17,9 +17,8 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <h1>Utvärdera ditt Varumärke</h1>
             <hr />
             <p className="ingress">
-              Svara på dessa frågor för att utvärdera ditt nuvarande varumärke
-              och skapa en ny varumärkesidentitet som kommer att stödja dina
-              mål.
+            Svara på frågorna för att utvärdera ditt varumärke
+            och skapa en ny identitet som stödjer dina mål.
             </p>
           </div>
           <div>
@@ -41,7 +40,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             />
           </label>
           <label>
-            Vad gör du? <span>Beskriv kortfattat din verksamhet</span>
+            Verksamhetsbeskrivning <span>Beskriv kortfattat vad du gör</span>
             <textarea 
               rows={6}
               value={formData.brandAudit.whatYouDo}
@@ -50,7 +49,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Varumärkets hjärta{" "}
+            Varumärkets kärna{" "}
             <span>
               Beskriv ditt syfte, din vision, ditt uppdrag och dina värderingar
             </span>
@@ -71,7 +70,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Konkurrens <span>Vilka är dina topp 3-5 konkurrenter</span>
+            Konkurrenter <span>Vilka är dina 3-5 främsta konkurrenter</span>
             <textarea 
               rows={6}
               value={formData.brandAudit.competition}
@@ -80,8 +79,8 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Viktiga differentiatorer{" "}
-            <span>Vad gör dig annorlunda/bättre än dina konkurrenter?</span>
+            Särskiljande egenskaper{" "}
+            <span>Vad gör dig unik jämfört med dina konkurrenter?</span>
             <textarea 
               rows={8}
               value={formData.brandAudit.differentiators}
@@ -90,8 +89,8 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Varumärkets personlighet{" "}
-            <span>Hur beskriver du ditt varumärke?</span>
+            Varumärkets karaktär{" "}
+            <span>Hur skulle du beskriva ditt varumärkes personlighet?</span>
             <textarea 
               rows={8}
               value={formData.brandAudit.brandPersonality}
@@ -104,7 +103,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           <h3>Verbal identitet</h3>
           <p className="ingress">Så här talar du om ditt varumärke</p>
           <label>
-            Tagline <span>Hur sammanfattar du det du gör i en enda mening</span>
+            Slogan <span>Hur sammanfattar du det du gör i en mening</span>
             <textarea 
               rows={2}
               value={formData.brandAudit.tagline}
@@ -113,9 +112,9 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Värdesproposition{" "}
+            Kundvärde{" "}
             <span>
-              Vilket unikt värde får kunderna av att köpa din produkt/tjänst?
+              Vilket unikt värde får kunderna av att välja dig?
             </span>
             <textarea 
               rows={5}
@@ -125,9 +124,9 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Nyckelbudskap{" "}
+            Huvudbudskap{" "}
             <span>
-              Vilka är dina främsta försäljningsargument eller budskap?
+              Vilka är dina viktigaste försäljningsargument?
             </span>
             <textarea 
               rows={6}
@@ -146,7 +145,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Varumärkespersonlighet <span>Hur beskriver du ditt varumärke?</span>
+            Varumärkets karaktär <span>Hur beskriver du ditt varumärkes personlighet?</span>
             <textarea 
               rows={6}
               value={formData.brandAudit.brandPersonality2}
@@ -161,8 +160,8 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
             <span className="underline">
               Om du redan har en visuell identitet
             </span>
-            , granska din befintliga identitet och dokumentera vad funkar och
-            inte fungera för de olika delarna
+            , granska din befintliga identitet och dokumentera vad som fungerar och
+            vad som inte fungerar för de olika delarna
           </p>
           <label>
             Logotyp <span></span>
@@ -192,7 +191,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Annat <span>Foton, illustrationer, video, etc.</span>
+            Annat <span>Bilder, illustrationer, video, etc.</span>
             <textarea 
               rows={6}
               value={formData.brandAudit.other}
@@ -213,7 +212,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label>
-            Förhålla sig till/kommunicera dina värderingar?{" "}
+            Kommunicera dina värderingar?{" "}
             <textarea 
               rows={6}
               value={formData.brandAudit.communicateValues}
@@ -231,9 +230,9 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
           </label>
 
           <label className="vertical-align">
-            Vilka är dina största förbättringsmöjligheter{" "}
+            Vilka är dina största förbättringsområden{" "}
             <span>
-              Identifiera de saker du vill att din nya visuella identitet ska
+              Identifiera vad du vill att din nya visuella identitet ska
               kommunicera.
             </span>
             <textarea 
@@ -246,7 +245,7 @@ const BrandAuditPage: React.FunctionComponent<IBrandAuditProps> = (props) => {
       </div>
       <footer>
         <button className="btn red" onClick={print}>
-          Save as PDF
+          Spara som PDF
         </button>
         <Link className="btn" to="/competitoraudit">
           Konkurrensanalys

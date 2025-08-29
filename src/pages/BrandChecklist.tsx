@@ -162,7 +162,7 @@ const BrandChecklistPage: React.FunctionComponent<IBrandChecklistProps> = (
       </div>
       <footer>
         <button className="btn red" onClick={() => window.print()}>
-          Save as PDF
+          Spara som PDF
         </button>
         <Link className="btn" to="/">
           Tillbaka till start
